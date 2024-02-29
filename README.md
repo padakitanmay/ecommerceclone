@@ -1,13 +1,11 @@
 # Ecommerce CLone
 
-Currency Converter is a simple web application built using React that allows users to convert between different currencies.
+This website is made using ReactJS. It primarly uses concepts of react router
 
 ## Features
 
-- Convert from one currency to another with real-time exchange rates
-- Select the currencies you want to convert between
-- Swap between the selected currencies with one click
-- Convert currencies with a user-friendly interface
+- Ecommerce clone
+- React Router
 
 ## To run 
 

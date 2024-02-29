@@ -1,19 +1,8 @@
 import React, { useState, useEffect } from "react";
+import { useLoaderData } from "react-router-dom";
 
 function Github() {
-    const [data, setData] = useState(null);
-
-    useEffect(() => {
-        fetch("https://api.github.com/users/padakitanmay")
-            .then((res) => res.json())
-            .then((res) => {
-                setData(res);
-            })
-            .catch((error) => {
-                console.error("Error fetching data:", error);
-            });
-    }, []);
-
+    const data = useLoaderData();
     return (
         <div className="text-center m-4 bg-gray-400 text-white p-4 text-3xl">
             {data ? (
@@ -29,3 +18,8 @@ function Github() {
 }
 
 export default Github;
+
+export const gitHubInfo = async () => {
+    const res = await fetch("https://api.github.com/users/padakitanmay");
+    return res.json();
+};

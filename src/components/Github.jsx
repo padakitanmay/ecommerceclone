@@ -1,25 +1,29 @@
-import React, { useState, useEffect } from "react";
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData } from 'react-router-dom';
+const Github = () => {
+const data=useLoaderData()
+console.log(data)
+    // const [data,setData]=useState();
+    // useEffect(()=>{
+    //     fetch('https://api.github.com/users/amey-kachare')
+    //     .then(response=>response.json())
+    //     .then(data=>{
+    //         // console.log(data)
+    //         setData(data)
+    //         // console.log(dataa.followers)
+    //     })
+    // })
 
-function Github() {
-    const data = useLoaderData();
-    return (
-        <div className="text-center m-4 bg-gray-400 text-white p-4 text-3xl">
-            {data ? (
-                <>
-                    <p>Github Followers: {data.followers}</p>
-                    <img src={data.avatar_url} alt="Avatar" />
-                </>
-            ) : (
-                <p>Loading...</p>
-            )}
-        </div>
-    );
+  return (
+    <div className='bg-gray-700 text-white text-3xl m-4 text-center'>
+      Github Followers : {data.followers}
+      <img className=' w-25 h-25' src={data.avatar_url} ></img>
+    </div>
+  )
 }
 
-export default Github;
 
-export const gitHubInfo = async () => {
-    const res = await fetch("https://api.github.com/users/padakitanmay");
-    return res.json();
-};
+export const gitInfoLoader = async () => {
+    const response=await fetch('https://api.github.com/users/amey-kachare')
+    return response.json()
+}
+export default Github
